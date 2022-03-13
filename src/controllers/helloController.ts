@@ -1,5 +1,9 @@
 import {Request, Response} from 'express';
-
-export const getHello = (req:Request, res: Response)=>{
-    res.send('Hello World!');
+import { User } from '../models/userModel';
+interface MyRequest extends Request {
+    token?: string,
+    user?: User
+}
+export const getHello = (req:MyRequest, res: Response)=>{
+    res.render("index");
 }

@@ -1,9 +1,10 @@
 import { IRoute, Router } from "express";
-import {getTodoList, createTodo, updateTodo, getTodo, deleteTodo} from "../controllers/todoController";
+import {getTodoList, createTodo,getTodo,updateTodo,  deleteTodo} from "../controllers/todoController";
+import verifyUser from "../middlewares/verifyUser";
 const route = Router();
-route.get("/",getTodoList);
-route.post("/",createTodo);
-route.get("/:id",getTodo);
-route.put("/:id",updateTodo);
-route.delete("/:id",deleteTodo);
+route.get("/",verifyUser, getTodoList);
+route.post("/",verifyUser, createTodo);
+route.get("/:id",verifyUser,getTodo);
+route.put("/:id",verifyUser, updateTodo);
+route.delete("/:id",verifyUser, deleteTodo);
 export default route;

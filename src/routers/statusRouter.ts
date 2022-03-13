@@ -1,8 +1,8 @@
 import express from "express";
-import { getHello } from "../controllers/helloController";
+import { getStatusList } from "../controllers/statusController";
 import verifyUser from "../middlewares/verifyUser";
 const routes = express.Router();
 
-routes.get("/", getHello);
+routes.get("/", getStatusList);
 
 export default routes;
